@@ -3,7 +3,6 @@ import { User } from "../../domain/entities/User";
 import { EmployeeRepository } from "../../domain/repositories/EmployeeRepository";
 import { UserRepository } from "../../domain/repositories/UserRepository";
 import { RegisterEmployeeUserInput, RegisterEmployeeUserOutPut } from "../dtos/RegisterEmployeeUserDTOs";
-import bcrypt from 'bcrypt'
 import { PasswordHasher } from "../../domain/services/PasswordHasher";
 
 export class RegisterEmployeeUser {
