@@ -5,6 +5,7 @@ import { ReservationOrderRepositoryInMemory } from "../../src/infra/repositories
 import { VehicleRepositoryInMemory } from "../../src/infra/repositories/inMemory/VehicleRepositoryInMemory"
 
 test('should be able to reserve a vehicle', async () => {
+    expect.assertions(2)
     const payload = {
         employeeId: '111asd-sadas22-3434343',
         costumerId: '111asd-sadas22-223232',
@@ -17,6 +18,7 @@ test('should be able to reserve a vehicle', async () => {
     const reservationOrderRepository = new ReservationOrderRepositoryInMemory()
     const reserveVehicle = new ReserveVehicle(vehicleRepository, costumerRepository, employeeRepository, reservationOrderRepository)
     const reservation = await reserveVehicle.execute(payload)
+    expect(reservation.reservationPrice).toBe(300)
     expect(reservation.message).toBe('vehicle reserved successfully')
 })
 

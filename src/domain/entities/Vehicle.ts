@@ -12,9 +12,6 @@ export class Vehicle {
     id?: string
 
     constructor(brand: string, model: string, year: number, km: number, color: string, chassis: string, price: number, status: string, id?: string) {
-        if (!id) {
-            this.id = UUidSetter.setId()
-        }
         this.id = id
         this.brand = brand
         this.model = model
@@ -24,6 +21,9 @@ export class Vehicle {
         this.chassis = chassis
         this.price = price
         this.status = status
+        if (!id) {
+            this.id = UUidSetter.setId()
+        }
     }
 
 }

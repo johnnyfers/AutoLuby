@@ -1,7 +1,15 @@
+import { UUidSetter } from "../services/UuidSetter";
 import { User } from "./User";
 
-export class Costumer extends User {
-    constructor(email: string, name: string, password: string, isActive: boolean, id?: string) {
-        super(email, name, password, isActive, id)
+export class Costumer{
+    user: User
+    id?: string
+    
+    constructor(user: User, id?: string) {
+        this.user = user
+        this.id = id
+        if (!id) {
+            this.id = this.id = UUidSetter.setId()
+        }
     }
 }

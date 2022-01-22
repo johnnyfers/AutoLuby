@@ -1,12 +1,19 @@
+import { UUidSetter } from "../services/UuidSetter";
 import { User } from "./User";
 
-export class Employee extends User {
+export class Employee {
     annualSalary: number
     jobPosition: string
+    user: User
+    id?: string
 
-    constructor(email: string, name: string, password: string, isActive: boolean, annualSalary: number, jobPosition: string, id?: string) {
-        super(email, name, password, isActive, id)
+    constructor(annualSalary: number, jobPosition: string, user: User, id?: string) {
         this.annualSalary = annualSalary
         this.jobPosition = jobPosition
+        this.user = user
+        this.id = id
+        if (!id) {
+            this.id = this.id = UUidSetter.setId()
+        }
     }
 }
