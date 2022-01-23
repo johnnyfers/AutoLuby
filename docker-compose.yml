@@ -3,14 +3,14 @@ version: "3.9"
 services:
   database:
     image: postgres
-    container_name: database_pg
+    container_name: database_pg_autoluby
     restart: always
     ports:
-      - 5431:5432 
+      - 5432:5432 
     environment:
       - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=login
-      - POSTGRES_DB=loginuser
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=autoluby
     volumes:
       - pgdata:/data/postgres
 
