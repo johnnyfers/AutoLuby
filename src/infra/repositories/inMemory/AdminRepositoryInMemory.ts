@@ -12,5 +12,4 @@ export class AdminRepositoryInMemory implements AdminRepository {
     async save(admin: Admin): Promise<void> {
         this.admin.push(admin)
     }
-
 }

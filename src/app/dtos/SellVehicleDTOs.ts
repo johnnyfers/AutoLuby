@@ -14,6 +14,7 @@ interface SellVehicleOutput {
     vehicle: Vehicle
     costumer: Costumer
     employee: Employee
+    price: number
     date: string
 }
 

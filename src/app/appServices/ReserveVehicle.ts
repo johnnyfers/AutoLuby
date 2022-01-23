@@ -28,7 +28,6 @@ export class ReserveVehicle {
 
     async execute(payload: ReserveVehicleInput): Promise<ReserveVehicleOutput> {
         const dateString = DateFormatter.formatDate(payload.date)
-        const reservationOrder = new ReservationOrder(payload.employeeId, payload.costumerId, payload.vehicleId, dateString)
         const vehicle = await this.vehicleRepository.findById(payload.vehicleId)
         const costumer = await this.costumerRepository.findById(payload.costumerId)
         const employee = await this.employeeRepository.findById(payload.employeeId)
@@ -36,8 +35,9 @@ export class ReserveVehicle {
         if (!costumer) throw new Error('costumer not found')
         if (!employee) throw new Error('employee not found')
         if (vehicle.status !== 'available') throw new Error('Vehicle not available')
+        const reservationOrder = new ReservationOrder(employee, costumer, vehicle, dateString)
+        reservationOrder.getReservationPrice(vehicle.price)
         await this.vehicleRepository.updateStatus(vehicle.id, 'reserved')
-        const reservationPrice = reservationOrder.getReservationPrice(vehicle.price)
         await this.reservationOrderRepository.save(reservationOrder)
 
         return {
@@ -45,7 +45,7 @@ export class ReserveVehicle {
             vehicle,
             costumer,
             employee,
-            reservationPrice,
+            reservationPrice: reservationOrder.totalPrice,
             date: dateString
         }
     }

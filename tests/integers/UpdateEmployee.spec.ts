@@ -9,7 +9,6 @@ test('should be able to update employee annualSalary', async () => {
     const employeeRepository = new EmployeeRepositoryInMemory()
     const updateEmployee = new UpdateEmployee(employeeRepository)
     const employee = await updateEmployee.execute(payload)
-    console.log(employee.employee)
     expect(employee.employee.annualSalary).toBe(100000)
 })
 
@@ -21,6 +20,5 @@ test('should be able to update employee job position', async () => {
     const employeeRepository = new EmployeeRepositoryInMemory()
     const updateEmployee = new UpdateEmployee(employeeRepository)
     const employee = await updateEmployee.execute(payload)
-    console.log(employee.employee)
     expect(employee.employee.jobPosition).toBe('CTO')
 })

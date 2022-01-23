@@ -28,7 +28,6 @@ export class SellVehicle {
 
     async execute(payload: SellVehicleInput): Promise<SellVehicleOutput | Error> {
         const dateString = DateFormatter.formatDate(payload.date)
-        const sellOrder = new SellOrder(payload.employeeId, payload.costumerId, payload.vehicleId, dateString)
         const vehicle = await this.vehicleRepository.findById(payload.vehicleId)
         const costumer = await this.costumerRepository.findById(payload.costumerId)
         const employee = await this.employeeRepository.findById(payload.employeeId)
@@ -36,6 +35,7 @@ export class SellVehicle {
         if (!costumer) throw new Error('costumer not found')
         if (!employee) throw new Error('employee not found')
         if (vehicle.status !== 'available') throw new Error('Vehicle not available')
+        const sellOrder = new SellOrder(employee, costumer, vehicle, dateString, vehicle.price)
         await this.vehicleRepository.updateStatus(vehicle.id, 'sold')
         await this.sellOrderRepository.save(sellOrder)
 
@@ -44,6 +44,7 @@ export class SellVehicle {
             vehicle,
             costumer,
             employee,
+            price: sellOrder.price,
             date: dateString
         }
     }

@@ -1,18 +1,23 @@
 import { UUidSetter } from "../services/UuidSetter"
+import { Costumer } from "./Costumer"
+import { Employee } from "./Employee"
+import { Vehicle } from "./Vehicle"
 
 export class SellOrder {
-    employeeId: string
-    costumerId: string
-    vehicleId: string
+    employee: Employee
+    costumer: Costumer
+    vehicle: Vehicle
     dateString: string
+    price: number
     id?: string
 
-    constructor(employeeId: string, costumerId: string, vehicleId: string, dateString: string, id?: string) {
+    constructor(employee: Employee, costumer: Costumer, vehicle: Vehicle, dateString: string, price: number, id?: string) {
         this.id = id
-        this.employeeId = employeeId
-        this.costumerId = costumerId
-        this.vehicleId = vehicleId
+        this.employee = employee
+        this.costumer = costumer
+        this.vehicle = vehicle
         this.dateString = dateString
+        this.price = price
         if (!id) {
             this.id = this.id = UUidSetter.setId()
         }
