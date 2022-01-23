@@ -1,10 +1,10 @@
-import { SellOrder } from "../../domain/entities/SellOrder";
-import { CostumerRepository } from "../../domain/repositories/CostumerRepository";
-import { EmployeeRepository } from "../../domain/repositories/EmployeeRepository";
-import { SellOrderRepository } from "../../domain/repositories/SellOrderRepository";
-import { VehicleRepository } from "../../domain/repositories/VehicleRepository";
-import { DateFormatter } from "../../domain/services/DateFormatter";
-import { SellVehicleInput, SellVehicleOutput } from "../dtos/SellVehicleDTOs";
+import { SellOrder } from "../../../domain/entities/SellOrder";
+import { CostumerRepository } from "../../../domain/repositories/CostumerRepository";
+import { EmployeeRepository } from "../../../domain/repositories/EmployeeRepository";
+import { SellOrderRepository } from "../../../domain/repositories/SellOrderRepository";
+import { VehicleRepository } from "../../../domain/repositories/VehicleRepository";
+import { DateFormatter } from "../../../domain/services/DateFormatter";
+import { SellVehicleInput, SellVehicleOutput } from "../../dtos/vehicles/SellVehicleDTOs";
 
 export class SellVehicle {
     sellOrder: SellOrder[]

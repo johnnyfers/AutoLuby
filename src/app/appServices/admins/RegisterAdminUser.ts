@@ -1,9 +1,9 @@
-import { Admin } from "../../domain/entities/Admin";
-import { User } from "../../domain/entities/User";
-import { AdminRepository } from "../../domain/repositories/AdminRepository";
-import { UserRepository } from "../../domain/repositories/UserRepository";
-import { RegisterAdminUserInput, RegisterAdminUserOutPut } from "../dtos/RegisterAdminUserDTOs";
-import { PasswordHasher } from "../../domain/services/PasswordHasher";
+import { Admin } from "../../../domain/entities/Admin";
+import { User } from "../../../domain/entities/User";
+import { AdminRepository } from "../../../domain/repositories/AdminRepository";
+import { UserRepository } from "../../../domain/repositories/UserRepository";
+import { RegisterAdminUserInput, RegisterAdminUserOutPut } from "../../dtos/admins/RegisterAdminUserDTOs";
+import { PasswordHasher } from "../../../domain/services/PasswordHasher";
 
 export class RegisterAdminUser {
     adminRepository: AdminRepository

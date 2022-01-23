@@ -1,3 +1,4 @@
+import { UpdateEmployeeInput } from "../../../app/dtos/employees/UpdateEmployeeDTOs";
 import { Employee } from "../../../domain/entities/Employee";
 import { User } from "../../../domain/entities/User";
 import { EmployeeRepository } from "../../../domain/repositories/EmployeeRepository"
@@ -26,11 +27,12 @@ export class EmployeeRepositoryInMemory implements EmployeeRepository {
         return this.employee.filter(employee => employee.user.isActive)
     }
 
-    async updateEmployee(employeeId: string, updatePayload: { jobPosition?: string, annualSalary?: number }): Promise<Employee> {
+    async updateEmployee(updatePayload: UpdateEmployeeInput): Promise<Employee> {
+        const { employeeId, jobPosition, annualSalary } = updatePayload
         const index = this.employee.findIndex(employee => employee.id === employeeId)
         return this.employee[index] = {
             ...this.employee[index],
-            ...updatePayload
+            jobPosition, annualSalary
         }
     }
 }

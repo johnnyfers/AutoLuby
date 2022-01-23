@@ -1,6 +1,6 @@
-import { Vehicle } from "../../domain/entities/Vehicle";
-import { VehicleRepository } from "../../domain/repositories/VehicleRepository";
-import { ObtainVehicleInput, ObtainVehicleOutput } from "../dtos/ObtainVehicleDTOs";
+import { Vehicle } from "../../../domain/entities/Vehicle";
+import { VehicleRepository } from "../../../domain/repositories/VehicleRepository";
+import { ObtainVehicleInput, ObtainVehicleOutput } from "../../dtos/vehicles/ObtainVehicleDTOs";
 
 export class ObtainVehicle {
     vehicleRepository: VehicleRepository

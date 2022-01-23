@@ -1,9 +1,9 @@
-import { Employee } from "../../domain/entities/Employee";
-import { User } from "../../domain/entities/User";
-import { EmployeeRepository } from "../../domain/repositories/EmployeeRepository";
-import { UserRepository } from "../../domain/repositories/UserRepository";
-import { RegisterEmployeeUserInput, RegisterEmployeeUserOutPut } from "../dtos/RegisterEmployeeUserDTOs";
-import { PasswordHasher } from "../../domain/services/PasswordHasher";
+import { Employee } from "../../../domain/entities/Employee";
+import { User } from "../../../domain/entities/User";
+import { EmployeeRepository } from "../../../domain/repositories/EmployeeRepository";
+import { UserRepository } from "../../../domain/repositories/UserRepository";
+import { RegisterEmployeeUserInput, RegisterEmployeeUserOutPut } from "../../dtos/employees/RegisterEmployeeUserDTOs";
+import { PasswordHasher } from "../../../domain/services/PasswordHasher";
 
 export class RegisterEmployeeUser {
     employeeRepository: EmployeeRepository

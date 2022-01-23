@@ -1,4 +1,4 @@
-import { ShowVehicle } from "../../src/app/appServices/ShowVehicle"
+import { ShowVehicle } from "../../src/app/appServices/vehicles/ShowVehicle"
 import { VehicleRepositoryInMemory } from "../../src/infra/repositories/inMemory/VehicleRepositoryInMemory"
 
 test('should be able to show a vehicles', async () => {

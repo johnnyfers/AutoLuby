@@ -1,6 +1,6 @@
-import { EmployeeRepository } from "../../domain/repositories/EmployeeRepository"
-import { UserRepository } from "../../domain/repositories/UserRepository"
-import { SoftDeleteEmployeeInput, SoftDeleteEmployeeOutput } from "../dtos/SoftDeleteEmployeeDTOs"
+import { EmployeeRepository } from "../../../domain/repositories/EmployeeRepository"
+import { UserRepository } from "../../../domain/repositories/UserRepository"
+import { SoftDeleteEmployeeInput, SoftDeleteEmployeeOutput } from "../../dtos/employees/SoftDeleteEmployeeDTOs"
 
 export class SoftDeleteEmployee {
     employeeRepository: EmployeeRepository

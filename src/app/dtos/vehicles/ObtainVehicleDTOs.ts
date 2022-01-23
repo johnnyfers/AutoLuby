@@ -1,4 +1,4 @@
-import { Vehicle } from "../../domain/entities/Vehicle";
+import { Vehicle } from "../../../domain/entities/Vehicle";
 
 export interface ObtainVehicleInput {
     brand: string

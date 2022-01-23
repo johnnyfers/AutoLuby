@@ -1,4 +1,4 @@
-import { ListEmployees } from "../../src/app/appServices/ListEmployees"
+import { ListEmployees } from "../../src/app/appServices/employees/ListEmployees"
 import { EmployeeRepositoryInMemory } from "../../src/infra/repositories/inMemory/EmployeeRepositoryInMemory"
 
 test('should be able to list all active employees', async () => {

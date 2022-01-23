@@ -1,4 +1,4 @@
-import { SoftDeleteEmployee } from "../../src/app/appServices/SoftDeleteEmployee"
+import { SoftDeleteEmployee } from "../../src/app/appServices/employees/SoftDeleteEmployee"
 import { EmployeeRepositoryInMemory } from "../../src/infra/repositories/inMemory/EmployeeRepositoryInMemory"
 import { UserRepositoryInMemory } from "../../src/infra/repositories/inMemory/UserRepositoryInMemory"
 

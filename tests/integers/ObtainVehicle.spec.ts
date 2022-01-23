@@ -1,4 +1,4 @@
-import { ObtainVehicle } from "../../src/app/appServices/ObtainVehicle"
+import { ObtainVehicle } from "../../src/app/appServices/vehicles/ObtainVehicle"
 import { VehicleRepositoryInMemory } from "../../src/infra/repositories/inMemory/VehicleRepositoryInMemory"
 
 test('should be able to obtain a vehicle', async () => {

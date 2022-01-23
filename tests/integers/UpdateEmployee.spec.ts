@@ -1,4 +1,4 @@
-import { UpdateEmployee } from "../../src/app/appServices/UpdateEmployee"
+import { UpdateEmployee } from "../../src/app/appServices/employees/UpdateEmployee"
 import { EmployeeRepositoryInMemory } from "../../src/infra/repositories/inMemory/EmployeeRepositoryInMemory"
 
 test('should be able to update employee annualSalary', async () => {

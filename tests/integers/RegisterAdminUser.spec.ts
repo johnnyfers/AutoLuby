@@ -1,4 +1,4 @@
-import { RegisterAdminUser } from "../../src/app/appServices/RegisterAdminUser"
+import { RegisterAdminUser } from "../../src/app/appServices/admins/RegisterAdminUser"
 import { AdminRepositoryInMemory } from "../../src/infra/repositories/inMemory/AdminRepositoryInMemory"
 import { UserRepositoryInMemory } from "../../src/infra/repositories/inMemory/UserRepositoryInMemory"
 

@@ -1,5 +1,5 @@
-import { EmployeeRepository } from "../../domain/repositories/EmployeeRepository";
-import { ShowEmployeeInput, ShowEmployeeOutput } from "../dtos/ShowEmployeeDTOs";
+import { EmployeeRepository } from "../../../domain/repositories/EmployeeRepository";
+import { ShowEmployeeInput, ShowEmployeeOutput } from "../../dtos/employees/ShowEmployeeDTOs";
 
 
 export class ShowEmployee {

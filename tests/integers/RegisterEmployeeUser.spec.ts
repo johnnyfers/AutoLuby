@@ -1,4 +1,4 @@
-import { RegisterEmployeeUser } from "../../src/app/appServices/RegisterEmployeeUser"
+import { RegisterEmployeeUser } from "../../src/app/appServices/employees/RegisterEmployeeUser"
 import { EmployeeRepositoryInMemory } from "../../src/infra/repositories/inMemory/EmployeeRepositoryInMemory"
 import { UserRepositoryInMemory } from "../../src/infra/repositories/inMemory/UserRepositoryInMemory"
 

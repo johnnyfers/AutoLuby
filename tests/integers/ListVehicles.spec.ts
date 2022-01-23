@@ -1,4 +1,4 @@
-import { ListVehicles } from "../../src/app/appServices/ListVehicles"
+import { ListVehicles } from "../../src/app/appServices/vehicles/ListVehicles"
 import { VehicleRepositoryInMemory } from "../../src/infra/repositories/inMemory/VehicleRepositoryInMemory"
 
 test('should be able to list all vehicles', async () => {

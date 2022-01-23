@@ -1,4 +1,4 @@
-import { RegisterCostumerUser } from "../../src/app/appServices/RegisterCostumerUser"
+import { RegisterCostumerUser } from "../../src/app/appServices/costumers/RegisterCostumerUser"
 import { CostumerRepositoryInMemory } from "../../src/infra/repositories/inMemory/CostumerRepositoryInMemory"
 import { UserRepositoryInMemory } from "../../src/infra/repositories/inMemory/UserRepositoryInMemory"
 

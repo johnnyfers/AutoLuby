@@ -1,9 +1,9 @@
-import { Costumer } from "../../domain/entities/Costumer";
-import { User } from "../../domain/entities/User";
-import { CostumerRepository } from "../../domain/repositories/CostumerRepository";
-import { UserRepository } from "../../domain/repositories/UserRepository";
-import { RegisterCostumerUserInput, RegisterCostumerUserOutPut } from "../dtos/RegisterCostumerUserDTOs";
-import { PasswordHasher } from "../../domain/services/PasswordHasher";
+import { Costumer } from "../../../domain/entities/Costumer";
+import { User } from "../../../domain/entities/User";
+import { CostumerRepository } from "../../../domain/repositories/CostumerRepository";
+import { UserRepository } from "../../../domain/repositories/UserRepository";
+import { RegisterCostumerUserInput, RegisterCostumerUserOutPut } from "../../dtos/costumers/RegisterCostumerUserDTOs";
+import { PasswordHasher } from "../../../domain/services/PasswordHasher";
 
 export class RegisterCostumerUser {
     CostumerRepository: CostumerRepository

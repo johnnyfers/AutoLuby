@@ -1,4 +1,4 @@
-import { ReserveVehicle } from "../../src/app/appServices/ReserveVehicle"
+import { ReserveVehicle } from "../../src/app/appServices/vehicles/ReserveVehicle"
 import { CostumerRepositoryInMemory } from "../../src/infra/repositories/inMemory/CostumerRepositoryInMemory"
 import { EmployeeRepositoryInMemory } from "../../src/infra/repositories/inMemory/EmployeeRepositoryInMemory"
 import { ReservationOrderRepositoryInMemory } from "../../src/infra/repositories/inMemory/ReservationOrderRepositoryInMemory"

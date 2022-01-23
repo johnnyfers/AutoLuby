@@ -1,6 +1,6 @@
-import { Costumer } from "../../domain/entities/Costumer"
-import { Employee } from "../../domain/entities/Employee"
-import { Vehicle } from "../../domain/entities/Vehicle"
+import { Costumer } from "../../../domain/entities/Costumer"
+import { Employee } from "../../../domain/entities/Employee"
+import { Vehicle } from "../../../domain/entities/Vehicle"
 
 interface ReserveVehicleInput {
     employeeId: string

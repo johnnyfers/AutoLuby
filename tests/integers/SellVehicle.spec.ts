@@ -1,4 +1,4 @@
-import { SellVehicle } from "../../src/app/appServices/SellVehicle"
+import { SellVehicle } from "../../src/app/appServices/vehicles/SellVehicle"
 import { CostumerRepositoryInMemory } from "../../src/infra/repositories/inMemory/CostumerRepositoryInMemory"
 import { EmployeeRepositoryInMemory } from "../../src/infra/repositories/inMemory/EmployeeRepositoryInMemory"
 import { SellOrderRepositoryInMemory } from "../../src/infra/repositories/inMemory/SellOrderRepositoryInMemory"

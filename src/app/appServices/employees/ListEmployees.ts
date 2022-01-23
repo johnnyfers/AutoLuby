@@ -1,5 +1,5 @@
-import { EmployeeRepository } from "../../domain/repositories/EmployeeRepository";
-import { listEmployeesOutPut } from "../dtos/ListEmployeesDTOs";
+import { EmployeeRepository } from "../../../domain/repositories/EmployeeRepository";
+import { listEmployeesOutPut } from "../../dtos/employees/ListEmployeesDTOs";
 
 export class ListEmployees {
     employeeRepository: EmployeeRepository

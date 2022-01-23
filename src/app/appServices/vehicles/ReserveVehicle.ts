@@ -1,10 +1,10 @@
-import { ReservationOrder } from "../../domain/entities/ReservationOrder";
-import { CostumerRepository } from "../../domain/repositories/CostumerRepository";
-import { EmployeeRepository } from "../../domain/repositories/EmployeeRepository";
-import { ReservationOrderRepository } from "../../domain/repositories/ReservationOrderRepository";
-import { VehicleRepository } from "../../domain/repositories/VehicleRepository";
-import { DateFormatter } from "../../domain/services/DateFormatter";
-import { ReserveVehicleInput, ReserveVehicleOutput } from "../dtos/ReserveVehicleDTOs";
+import { ReservationOrder } from "../../../domain/entities/ReservationOrder";
+import { CostumerRepository } from "../../../domain/repositories/CostumerRepository";
+import { EmployeeRepository } from "../../../domain/repositories/EmployeeRepository";
+import { ReservationOrderRepository } from "../../../domain/repositories/ReservationOrderRepository";
+import { VehicleRepository } from "../../../domain/repositories/VehicleRepository";
+import { DateFormatter } from "../../../domain/services/DateFormatter";
+import { ReserveVehicleInput, ReserveVehicleOutput } from "../../dtos/vehicles/ReserveVehicleDTOs";
 
 export class ReserveVehicle {
     reservationOrder: ReservationOrder[]
