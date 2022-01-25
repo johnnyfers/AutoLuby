@@ -7,7 +7,8 @@ export class UserRepositoryInMemory implements UserRepository {
     constructor() {
         this.user = [
             new User('fake@email.com', 'fake', 'fake', false, 'sadsadsadsa'),
-            new User('fake@email.com', 'fake', 'fake', true, 'dsadsadsa')
+            new User('fake@email.com', 'fake', 'fake', true, 'dsadsadsa'),
+            new User('fake77@email.com', 'fake', '$2a$08$WeYhsmq1RKFu8YVfKyEVOe78Dn9WzZNvnO1vmhuurDfcu4uhS0c2a', false, 'sadsadsadsa'),
         ];
     }
 
