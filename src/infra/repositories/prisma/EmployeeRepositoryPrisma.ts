@@ -1,10 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 import { UpdateEmployeeInput } from "../../../app/dtos/employees/UpdateEmployeeDTOs";
 import { Employee } from "../../../domain/entities/Employee";
-import { User } from "../../../domain/entities/User";
 import { EmployeeRepository } from "../../../domain/repositories/EmployeeRepository"
 
-export class EmployeeRepositoryInMemory implements EmployeeRepository {
+export class EmployeeRepositoryPrisma implements EmployeeRepository {
     prisma: PrismaClient
 
     constructor() {
@@ -49,6 +48,17 @@ export class EmployeeRepositoryInMemory implements EmployeeRepository {
             data: {
                 jobPosition,
                 annualSalary
+            },
+            include: {
+                user: true
+            }
+        })
+    }
+
+    async findByUserId(id: string): Promise<Employee> {
+        return this.prisma.employee.findUnique({
+            where: {
+                userId: id
             },
             include: {
                 user: true

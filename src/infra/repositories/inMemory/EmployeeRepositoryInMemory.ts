@@ -35,4 +35,8 @@ export class EmployeeRepositoryInMemory implements EmployeeRepository {
             jobPosition, annualSalary
         }
     }
+
+    async findByUserId(userId: string): Promise<Employee> {
+        return this.employee.find(employee => employee.user.id === userId)
+    }
 }

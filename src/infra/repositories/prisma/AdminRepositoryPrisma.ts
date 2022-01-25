@@ -14,4 +14,15 @@ export class AdminRepositoryPrisma implements AdminRepository {
             data: admin
         })
     }
+
+    async findByUserId(userId: string): Promise<Admin> {
+        return this.prisma.admin.findUnique({
+            where: {
+                userId: userId
+            },
+            include: {
+                user: true
+            }
+        })
+    }
 }

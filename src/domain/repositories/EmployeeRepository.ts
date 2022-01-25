@@ -6,4 +6,5 @@ export interface EmployeeRepository {
     findById(id: string): Promise<Employee> | undefined
     getAllActiveEmployees(): Promise<Employee[]> | undefined
     updateEmployee(updatePayload: UpdateEmployeeInput): Promise<Employee> | undefined
+    findByUserId(userId: string): Promise<Employee> | undefined
 }

@@ -15,14 +15,9 @@ export class AuthUser {
         const jwt = new JsonWebToken()
         const userLogin = new UserLogin(payload.email, payload.password, jwt)
         const user = await this.userRepository.findByemail(userLogin.email)
-        if (!user) {
-            throw new Error('Email or password incorrect')
-        }
+        if (!user) throw new Error('Email or password incorrect')
         const passwordMatch = await compare(userLogin.password, user.password)
-        console.log({passwordMatch})
-        if (!passwordMatch) {
-            throw new Error('Email or password incorrect');
-        }
+        if (!passwordMatch) throw new Error('Email or password incorrect')
         const token = userLogin.getToken(user.id)
         const refreshToken = userLogin.getRefreshToken(user.email, user.id)
         return {

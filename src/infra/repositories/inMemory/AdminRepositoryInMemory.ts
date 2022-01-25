@@ -6,9 +6,13 @@ export class AdminRepositoryInMemory implements AdminRepository {
 
     constructor() {
         this.admin = []
-     }
+    }
 
     async save(admin: Admin): Promise<void> {
         this.admin.push(admin)
+    }
+
+    async findByUserId(userId: string): Promise<Admin> {
+        return this.admin.find(admin => admin.user.id === userId)
     }
 }
