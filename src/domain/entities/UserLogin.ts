@@ -11,11 +11,11 @@ export class UserLogin {
         this.tokenGenerator = tokenGenerator
     }
 
-    getToken(subject: string): string {
-        return this.tokenGenerator.getToken(subject)
+    getToken(userId: string): string {
+        return this.tokenGenerator.getToken(userId)
     }
 
-    getRefreshToken(email: string, subject: string): string {
-        return this.tokenGenerator.getRefreshToken(email, subject)
+    getRefreshToken(email: string, userId: string): string {
+        return this.tokenGenerator.getRefreshToken(email, userId)
     }
 }

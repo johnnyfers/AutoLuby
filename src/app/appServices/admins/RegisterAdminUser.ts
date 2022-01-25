@@ -1,3 +1,4 @@
+import { inject, injectable } from "tsyringe";
 import { Admin } from "../../../domain/entities/Admin";
 import { User } from "../../../domain/entities/User";
 import { AdminRepository } from "../../../domain/repositories/AdminRepository";
@@ -5,11 +6,18 @@ import { UserRepository } from "../../../domain/repositories/UserRepository";
 import { RegisterAdminUserInput, RegisterAdminUserOutPut } from "../../dtos/admins/RegisterAdminUserDTOs";
 import { PasswordHasher } from "../../../domain/services/PasswordHasher";
 
+@injectable()
 export class RegisterAdminUser {
-    adminRepository: AdminRepository
-    userRepository: UserRepository
+    private adminRepository: AdminRepository
+    private userRepository: UserRepository
 
-    constructor(userRepository: UserRepository, adminRepository: AdminRepository) {
+    constructor(
+        @inject('UserRepository')
+        userRepository: UserRepository,
+        
+        @inject('AdminRepository')
+        adminRepository: AdminRepository
+    ) {
         this.userRepository = userRepository
         this.adminRepository = adminRepository
     }

@@ -11,8 +11,14 @@ export class SellOrderRepositoryPrisma implements SellOrderRepository {
 
 
     async save(sellOrder: SellOrder): Promise<void> {
-        this.prisma.sellOrder.create({
-            data: sellOrder
+        await this.prisma.sellOrder.create({
+            data: {
+                dateString: sellOrder.dateString,
+                price: sellOrder.price,
+                costumerId: sellOrder.costumer.id,
+                employeeId: sellOrder.employee.id,
+                vehicleId: sellOrder.vehicle.id
+            }
         });
     }
 

@@ -1,3 +1,4 @@
+import { inject, injectable } from "tsyringe";
 import { Costumer } from "../../../domain/entities/Costumer";
 import { User } from "../../../domain/entities/User";
 import { CostumerRepository } from "../../../domain/repositories/CostumerRepository";
@@ -5,11 +6,17 @@ import { UserRepository } from "../../../domain/repositories/UserRepository";
 import { RegisterCostumerUserInput, RegisterCostumerUserOutPut } from "../../dtos/costumers/RegisterCostumerUserDTOs";
 import { PasswordHasher } from "../../../domain/services/PasswordHasher";
 
+@injectable()
 export class RegisterCostumerUser {
     CostumerRepository: CostumerRepository
     userRepository: UserRepository
 
-    constructor(userRepository: UserRepository, CostumerRepository: CostumerRepository) {
+    constructor(
+        @inject('UserRepository')
+        userRepository: UserRepository,
+        @inject('CostumerRepository')
+        CostumerRepository: CostumerRepository
+    ) {
         this.userRepository = userRepository
         this.CostumerRepository = CostumerRepository
     }

@@ -11,7 +11,10 @@ export class CostumerRepositoryPrisma implements CostumerRepository {
 
     async save(costumer: Costumer): Promise<void> {
         await this.prisma.costumer.create({
-            data: costumer
+            data: {
+                id: costumer.id,
+                userId: costumer.user.id,
+            }
         })
     }
 

@@ -1,13 +1,17 @@
-import { compare } from "bcrypt";
+import { compare } from "bcrypt"
+import { inject, injectable } from "tsyringe";
 import { UserLogin } from "../../../domain/entities/UserLogin";
 import { UserRepository } from "../../../domain/repositories/UserRepository";
 import { JsonWebToken } from "../../../domain/services/JsonWebToken";
 import { AuthUserInput, AuthUserOutput } from "../../dtos/account/AuthUserDTOs";
 
+@injectable()
 export class AuthUser {
-    userRepository: UserRepository
+    private userRepository: UserRepository
 
-    constructor(userRepository: UserRepository) {
+    constructor(
+        @inject('UserRepository')
+        userRepository: UserRepository) {
         this.userRepository = userRepository
     }
 

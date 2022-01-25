@@ -3,7 +3,7 @@ import { UpdateVehicleInput } from "../../../app/dtos/vehicles/UpdateVehicleDTOs
 import { Vehicle } from "../../../domain/entities/Vehicle";
 import { VehicleRepository } from "../../../domain/repositories/VehicleRepository";
 
-export class VehicleRepositoryInMemory implements VehicleRepository {
+export class VehicleRepositoryPrisma implements VehicleRepository {
     prisma: PrismaClient
 
     constructor() {

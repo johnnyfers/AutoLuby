@@ -1,3 +1,4 @@
+import { inject, injectable } from "tsyringe";
 import { ReservationOrder } from "../../../domain/entities/ReservationOrder";
 import { CostumerRepository } from "../../../domain/repositories/CostumerRepository";
 import { EmployeeRepository } from "../../../domain/repositories/EmployeeRepository";
@@ -6,24 +7,27 @@ import { VehicleRepository } from "../../../domain/repositories/VehicleRepositor
 import { DateFormatter } from "../../../domain/services/DateFormatter";
 import { ReserveVehicleInput, ReserveVehicleOutput } from "../../dtos/vehicles/ReserveVehicleDTOs";
 
+@injectable()
 export class ReserveVehicle {
-    reservationOrder: ReservationOrder[]
-    vehicleRepository: VehicleRepository
-    costumerRepository: CostumerRepository
-    employeeRepository: EmployeeRepository
-    reservationOrderRepository: ReservationOrderRepository
+    private vehicleRepository: VehicleRepository
+    private costumerRepository: CostumerRepository
+    private employeeRepository: EmployeeRepository
+    private reservationOrderRepository: ReservationOrderRepository
 
     constructor(
+        @inject('VehicleRepository')
         vehicleRepository: VehicleRepository,
+        @inject('CostumerRepository')
         costumerRepository: CostumerRepository,
+        @inject('EmployeeRepository')
         employeeRepository: EmployeeRepository,
+        @inject('ReservationOrderRepository')
         reservationOrderRepository: ReservationOrderRepository
     ) {
         this.vehicleRepository = vehicleRepository,
             this.costumerRepository = costumerRepository,
             this.employeeRepository = employeeRepository,
             this.reservationOrderRepository = reservationOrderRepository
-            this.reservationOrder = []
     }
 
     async execute(payload: ReserveVehicleInput): Promise<ReserveVehicleOutput> {

@@ -1,11 +1,15 @@
+import { inject, injectable } from "tsyringe";
 import { Vehicle } from "../../../domain/entities/Vehicle";
 import { VehicleRepository } from "../../../domain/repositories/VehicleRepository";
 import { ObtainVehicleInput, ObtainVehicleOutput } from "../../dtos/vehicles/ObtainVehicleDTOs";
 
+@injectable()
 export class ObtainVehicle {
-    vehicleRepository: VehicleRepository
+    private vehicleRepository: VehicleRepository
 
-    constructor(vehicleRepository: VehicleRepository) {
+    constructor(
+        @inject('VehicleRepository')
+        vehicleRepository: VehicleRepository) {
         this.vehicleRepository = vehicleRepository
     }
 

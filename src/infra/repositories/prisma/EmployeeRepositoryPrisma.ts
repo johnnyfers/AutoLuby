@@ -12,7 +12,14 @@ export class EmployeeRepositoryPrisma implements EmployeeRepository {
 
 
     async save(employee: Employee): Promise<void> {
-        this.prisma.employee.create({ data: employee })
+        await this.prisma.employee.create({
+            data: {
+                id: employee.id,
+                annualSalary: employee.annualSalary,
+                jobPosition: employee.jobPosition,
+                userId: employee.user.id
+            }
+        })
     }
 
     async findById(id: string): Promise<Employee> {
@@ -56,7 +63,7 @@ export class EmployeeRepositoryPrisma implements EmployeeRepository {
     }
 
     async findByUserId(id: string): Promise<Employee> {
-        return this.prisma.employee.findUnique({
+        return await this.prisma.employee.findUnique({
             where: {
                 userId: id
             },

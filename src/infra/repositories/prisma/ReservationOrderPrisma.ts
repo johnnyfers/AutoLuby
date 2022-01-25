@@ -11,8 +11,14 @@ export class ReservationOrderRepositoryPrisma implements ReservationOrderReposit
 
 
     async save(reservationOrder: ReservationOrder): Promise<void> {
-        this.prisma.reservationOrder.create({
-            data: reservationOrder
+        await this.prisma.reservationOrder.create({
+            data: {
+                dateString: reservationOrder.dateString,
+                totalPrice: reservationOrder.totalPrice,
+                costumerId: reservationOrder.costumer.id,
+                employeeId: reservationOrder.employee.id,
+                vehicleId: reservationOrder.vehicle.id
+            }
         });
     }
 

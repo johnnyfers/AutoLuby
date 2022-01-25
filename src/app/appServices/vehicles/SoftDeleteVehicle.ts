@@ -1,10 +1,15 @@
+import { inject, injectable } from "tsyringe";
 import { VehicleRepository } from "../../../domain/repositories/VehicleRepository";
 import { SoftDeleteVehicleInput, SoftDeleteVehicleOutput } from "../../dtos/vehicles/SoftDeleteVehicleDTOs";
 
+@injectable()
 export class SoftDeleteVehicle {
-    vehicleRepository: VehicleRepository
+    private vehicleRepository: VehicleRepository
 
-    constructor(vehicleRepository: VehicleRepository) {
+    constructor(
+        @inject('VehicleRepository')
+        vehicleRepository: VehicleRepository
+    ) {
         this.vehicleRepository = vehicleRepository
     }
 

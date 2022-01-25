@@ -1,10 +1,15 @@
+import { inject, injectable } from "tsyringe";
 import { EmployeeRepository } from "../../../domain/repositories/EmployeeRepository";
 import { listEmployeesOutPut } from "../../dtos/employees/ListEmployeesDTOs";
 
+@injectable()
 export class ListEmployees {
-    employeeRepository: EmployeeRepository
+    private employeeRepository: EmployeeRepository
 
-    constructor(employeeRepository: EmployeeRepository) {
+    constructor(
+        @inject('EmployeeRepository')
+        employeeRepository: EmployeeRepository
+    ) {
         this.employeeRepository = employeeRepository
     }
 

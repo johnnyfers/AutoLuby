@@ -10,13 +10,16 @@ export class AdminRepositoryPrisma implements AdminRepository {
     }
 
     async save(admin: Admin): Promise<void> {
-        this.prisma.admin.create({
-            data: admin
+        await this.prisma.admin.create({
+            data: {
+                id: admin.id,
+                userId: admin.user.id
+            }
         })
     }
 
     async findByUserId(userId: string): Promise<Admin> {
-        return this.prisma.admin.findUnique({
+        return await this.prisma.admin.findUnique({
             where: {
                 userId: userId
             },
