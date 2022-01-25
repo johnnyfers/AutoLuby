@@ -3,7 +3,6 @@ import 'reflect-metadata'
 import 'express-async-errors'
 import express, { Request, Response, NextFunction } from 'express'
 
-
 const app = express()
 app.use(express.json())
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {

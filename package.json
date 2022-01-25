@@ -19,6 +19,7 @@
     "dotenv": "^14.2.0",
     "express": "^4.17.2",
     "express-async-errors": "^3.1.1",
+    "generate": "^0.14.0",
     "jest": "^27.4.7",
     "prisma": "^3.8.1",
     "reflect-metadata": "^0.1.13",

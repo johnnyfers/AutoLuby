@@ -1,5 +1,4 @@
 import { Admin } from "../../../domain/entities/Admin";
-import { User } from "../../../domain/entities/User";
 import { AdminRepository } from "../../../domain/repositories/AdminRepository";
 
 export class AdminRepositoryInMemory implements AdminRepository {

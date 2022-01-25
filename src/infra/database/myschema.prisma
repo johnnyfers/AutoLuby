@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String    @id @default(uuid())
+  email    String    @unique
+  name     String
+  isActive Boolean
+  password String
+  admin    Admin?
+  costumer Costumer?
+  employee Employee?
+}
+
+model Employee {
+  id               String            @id @default(uuid())
+  jobPosition      String
+  annualSalary     Float
+  userId           String            @unique
+  user             User              @relation(fields: [userId], references: [id])
+  reservationOrder ReservationOrder?
+  sellOrder        SellOrder?
+}
+
+model Costumer {
+  id               String            @id @default(uuid())
+  userId           String            @unique
+  user             User              @relation(fields: [userId], references: [id])
+  reservationOrder ReservationOrder?
+  sellOrder        SellOrder?
+}
+
+model Admin {
+  id     String @id @default(uuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
+}
+
+model Vehicle {
+  id               String            @id @default(uuid())
+  brand            String
+  model            String
+  year             Int
+  km               Float
+  color            String
+  chassis          String
+  price            Float
+  status           String
+  reservationOrder ReservationOrder?
+  sellOrder        SellOrder?
+}
+
+model SellOrder {
+  id         String   @id @default(uuid())
+  dateString String
+  price      Float
+  employeeId String   @unique
+  costumerId String   @unique
+  vehicleId  String   @unique
+  costumer   Costumer @relation(fields: [costumerId], references: [id])
+  employee   Employee @relation(fields: [employeeId], references: [id])
+  vehicle    Vehicle  @relation(fields: [vehicleId], references: [id])
+}
+
+model ReservationOrder {
+  id         String   @id @default(uuid())
+  dateString String
+  totalPrice Float
+  employeeId String   @unique
+  costumerId String   @unique
+  vehicleId  String   @unique
+  costumer   Costumer @relation(fields: [costumerId], references: [id])
+  employee   Employee @relation(fields: [employeeId], references: [id])
+  vehicle    Vehicle  @relation(fields: [vehicleId], references: [id])
+}
