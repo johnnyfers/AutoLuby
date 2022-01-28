@@ -1,7 +1,13 @@
 import { Router } from 'express';
-import { RegisterAdminUserController } from '../../../app/controllers/admins/RegisterAdminUserController';
+import { accountRoutes } from './account.routes';
+import { adminRoutes } from './admin.routes';
+import { costumerRoutes } from './costumer.routes';
 
 const router = Router()
-const registerAdminUserController = new RegisterAdminUserController();
-router.post('/admins/register', registerAdminUserController.handle)
-export {router}
+router.use('/employee/', accountRoutes)
+router.use('/admin', adminRoutes)
+router.use('/costumer', costumerRoutes)
+router.use('/account/', accountRoutes)
+
+
+export { router }
