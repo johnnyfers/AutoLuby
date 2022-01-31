@@ -4,6 +4,8 @@ import { ListEmployeesController } from '../../../app/controllers/employees/List
 import { ShowEmployeeController } from '../../../app/controllers/employees/ShowEmployeeController';
 import { SoftDeleteEmployeeController } from '../../../app/controllers/employees/SoftDeleteEmployeeController';
 import { UpdateEmployeeController } from '../../../app/controllers/employees/UpdateEmployeeController';
+import { ensureAuthenticated } from '../middlewares/authUser';
+import { ensureAdmin } from '../middlewares/authAdmin';
 
 const employeeRoutes = Router()
 const registerEmployeeUserController = new RegisterEmployeeUserController()
@@ -12,10 +14,10 @@ const showEmployeeController = new ShowEmployeeController()
 const softDeleteEmployeeController = new SoftDeleteEmployeeController()
 const updateEmployeeController = new UpdateEmployeeController()
 
-employeeRoutes.post('/register', registerEmployeeUserController.handle)
-employeeRoutes.put('/:employeeId', updateEmployeeController.handle)
-employeeRoutes.get('/', listEmployeeController.handle)
-employeeRoutes.get('/:employeeId', showEmployeeController.handle)
-employeeRoutes.delete('/:employeeId', softDeleteEmployeeController.handle)
+employeeRoutes.post('/register', ensureAuthenticated, ensureAdmin, registerEmployeeUserController.handle)
+employeeRoutes.put('/:employeeId', ensureAuthenticated, updateEmployeeController.handle)
+employeeRoutes.get('/', ensureAuthenticated, listEmployeeController.handle)
+employeeRoutes.get('/:employeeId', ensureAuthenticated, showEmployeeController.handle)
+employeeRoutes.delete('/:employeeId', ensureAuthenticated, ensureAdmin, softDeleteEmployeeController.handle)
 
 export { employeeRoutes }

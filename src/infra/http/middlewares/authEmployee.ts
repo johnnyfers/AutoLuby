@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { AdminRepositoryPrisma } from "../../repositories/prisma/AdminRepositoryPrisma";
 import { EmployeeRepositoryPrisma } from "../../repositories/prisma/EmployeeRepositoryPrisma";
 
-export async function ensureAdmin(req: Request, res: Response, next: NextFunction){
+export async function ensureEmployee(req: Request, res: Response, next: NextFunction){
     const { id } = req.user
     const employeeRepository = new EmployeeRepositoryPrisma()
     const user = await employeeRepository.findByUserId(id)
