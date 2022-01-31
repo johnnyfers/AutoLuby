@@ -5,7 +5,7 @@ import { SoftDeleteEmployee } from '../../appServices/employees/SoftDeleteEmploy
 export class SoftDeleteEmployeeController {
     async handle(req: Request, res: Response): Promise<Response> {
         const softDeleteEmployee = container.resolve(SoftDeleteEmployee)
-        const employee = await softDeleteEmployee.execute(req.body)
+        const employee = await softDeleteEmployee.execute({...req.body, ...req.params})
         return res.json(employee)
     }
 }

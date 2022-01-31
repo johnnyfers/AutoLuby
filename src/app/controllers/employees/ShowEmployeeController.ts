@@ -5,7 +5,7 @@ import { ShowEmployee } from '../../appServices/employees/ShowEmployee'
 export class ShowEmployeeController {
     async handle(req: Request, res: Response): Promise<Response> {
         const showEmployee = container.resolve(ShowEmployee)
-        const employee = await showEmployee.execute(req.body)
+        const employee = await showEmployee.execute({...req.body, ...req.params})
         return res.json(employee)
     }
 }
