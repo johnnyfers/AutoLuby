@@ -8,5 +8,8 @@ export interface RegisterAdminUserInput {
 
 export interface RegisterAdminUserOutPut {
     id: string
-    user: User
+    user: {
+        email: string,
+        name: string
+    }
 }

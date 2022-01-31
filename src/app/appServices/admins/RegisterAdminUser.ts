@@ -34,7 +34,10 @@ export class RegisterAdminUser {
 
         return {
             id: admin.id,
-            user: admin.user
+            user: {
+                email: admin.user.email,
+                name: admin.user.name
+            }
         }
     }
 }

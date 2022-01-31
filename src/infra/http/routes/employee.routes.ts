@@ -15,7 +15,7 @@ const softDeleteEmployeeController = new SoftDeleteEmployeeController()
 const updateEmployeeController = new UpdateEmployeeController()
 
 employeeRoutes.post('/register', ensureAuthenticated, ensureAdmin, registerEmployeeUserController.handle)
-employeeRoutes.put('/:employeeId', ensureAuthenticated, updateEmployeeController.handle)
+employeeRoutes.put('/:employeeId', ensureAuthenticated, ensureAdmin, updateEmployeeController.handle)
 employeeRoutes.get('/', ensureAuthenticated, listEmployeeController.handle)
 employeeRoutes.get('/:employeeId', ensureAuthenticated, showEmployeeController.handle)
 employeeRoutes.delete('/:employeeId', ensureAuthenticated, ensureAdmin, softDeleteEmployeeController.handle)
