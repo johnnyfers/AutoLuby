@@ -1,64 +1,38 @@
-# AutoLuby
+AutoLuby
 API for car dealerships, built using TDD + DDD
 
-### **REQUISITOS FUNCIONAIS**
+Functional Requirements
+RF01 - Employees CRUD
+Create: The user must be unique, by email.
 
-##### **RF01 -** CRUD de funcionários
+Edit: It should be possible to edit a user.
 
-- **Cadastro:**
+List: It should be possible to list all employees.
 
-Descrição:O usuário deve ser único, por email.
+View: It should be possible to view a single employee and their vehicle sales/reservations.
 
-- **Edição:**
+Delete: It should be possible to delete an employee.
 
-Descrição: Deve ser possível editar um usuário.
+RF02 - Access profile (OPTIONAL)
+Feel free to perform this task and use your creativity, you can use access profiles and assign functions to employee types (administrator, salesperson).
 
-- **Listagem:**
+RF03 - Authentication
+It should be possible to authenticate in the system and divide public and private routes.
 
-Descrição: Deve ser possível listar todos os funcionários
+RF04 - Vehicle CRUD
+Acquire vehicle: The owner can acquire vehicles for their dealership. The vehicle must be unique, and fields can be described as: brand, model, year, km, color, chassis, and purchase price.
 
-- **Visualizar:**
+List vehicles: List all vehicles.
 
-Descrição: Deve ser possível visualizar um único funcionário e as vendas/reservas de veículos deste.
+Show vehicle: List a single vehicle.
 
-- **Remoção:**
+Delete vehicle: It should be possible to delete a vehicle.
 
-Descrição: Deve ser possível remover um funcionário.
+RF05 - Filter vehicles by status (OPTIONAL)
+You can filter sold or available vehicles.
 
-##### RF02 - Perfil de acesso (OPCIONAL)
+RF06 - Sell vehicle
+When performing this action, information such as date, vehicle status, sale price, and who sold it should be stored in the database.
 
-Descrição: sinta-se à vontade para realizar essa tarefa e use sua criatividade, você poderá utilizar perfis de acesso e atribuir funções para tipos de funcionários (administrador, vendedor).
-
-##### RF03 - Autenticação
-
-Descrição: deve ser possível fazer a autenticação no sistema e dividir as rotas públicas das privadas
-
-##### RF04 - Crud de Veículo
-
-- **Adquirir veículo:**
-
-Descrição: o proprietário poderá adquirir veículos para sua loja. O veículo deve ser único, os campos podem ser descritos como: marca, modelo, ano, km, cor, chassi e preço de compra.
-
-- **Listar veículo:**
-
-Descrição: Listagem de todos veículos.
-
-- **Mostrar veículo:**
-
-Descrição: Listagem de um único veículo.
-
-- **Remover veículo:**
-
-Descrição: Deve ser possível remover um veículo.
-
-##### RF05 - Filtrar veículos pelo status (OPCIONAL)
-
-Descrição: você pode filtrar veículos vendidos ou disponíveis
-
-##### RF06 - Vender veículo
-
-Descrição: ao realizar esta ação, informações como: data, status do veículo, valor da venda e quem vendeu, devem ser armazenadas no banco.
-
-##### RF07 - Reservar veículo
-
-Descrição: ao realizar esta ação, informações como: data, valor da reserva e quem vendeu, devem ser armazenadas no banco.
+RF07 - Reserve vehicle
+When performing this action, information such as date, reservation price, and who sold it should be stored in the database.
